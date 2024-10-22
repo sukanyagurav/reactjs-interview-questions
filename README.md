@@ -516,6 +516,7 @@ Hide/Show table of contents
 5.  ### What is the difference between Element and Component?
 
     An _Element_ is a plain object describing what you want to appear on the screen in terms of the DOM nodes or other components. _Elements_ can contain other _Elements_ in their props. Creating a React element is cheap. Once an element is created, it cannot be mutated.
+An element is the smallest building block of a user interface in React or HTML. It represents a single instance of a DOM node or a UI element, like a button, input field, or paragraph. In React, elements are immutable and describe what should be rendered on the UI.
 
     The JavaScript representation(Without JSX) of React Element would be as follows:
 
@@ -544,7 +545,9 @@ Hide/Show table of contents
     Finally, this element renders to the DOM using `ReactDOM.render()`.
 
     Whereas a **component** can be declared in several different ways. It can be a class with a `render()` method or it can be defined as a function. In either case, it takes props as an input, and returns a JSX tree as the output:
+A component is a reusable, self-contained piece of UI that can contain both markup (rendered elements) and logic (state, behavior). Components can be thought of as JavaScript functions or classes that return React elements. They are the building blocks of React applications.
 
+Role: Components allow you to encapsulate UI elements and their behavior, making the code modular and reusable. Components can manage their own state, handle events, and interact with other components.
     ```javascript
     const Button = ({ handleLogin }) => (
       <div id={"login-btn"} onClick={handleLogin}>
@@ -566,7 +569,7 @@ Hide/Show table of contents
 
     **[⬆ Back to Top](#table-of-contents)**
 
-6.  ### How to create components in React?
+7.  ### How to create components in React?
 
     Components are the building blocks of creating User Interfaces(UI) in React. There are two possible ways to create a component.
 
@@ -590,7 +593,7 @@ Hide/Show table of contents
 
     **[⬆ Back to Top](#table-of-contents)**
 
-7.  ### When to use a Class Component over a Function Component?
+8.  ### When to use a Class Component over a Function Component?
 
     After the addition of Hooks(i.e. React 16.8 onwards) it is always recommended to use Function components over Class components in React. Because you could use state, lifecycle methods and other features that were only available in class component present in function component too.
 
@@ -629,7 +632,7 @@ Hide/Show table of contents
 
     **[⬆ Back to Top](#table-of-contents)**
 
-8.  ### What are Pure Components?
+9.  ### What are Pure Components?
 
     Pure components are the components which render the same output for the same state and props. In function components, you can achieve these pure components through memoized `React.memo()` API wrapping around the component. This API prevents unnecessary re-renders by comparing the previous props and new props using shallow comparison. So it will be helpful for performance optimizations.
 
@@ -682,7 +685,7 @@ Hide/Show table of contents
 
     **[⬆ Back to Top](#table-of-contents)**
 
-9.  ### What is state in React?
+10.  ### What is state in React?
 
     _State_ of a component is an object that holds some information that may change over the lifetime of the component. The important point is whenever the state object changes, the component re-renders. It is always recommended to make our state as simple as possible and minimize the number of stateful components.
 
@@ -737,7 +740,7 @@ Hide/Show table of contents
 
     **[⬆ Back to Top](#table-of-contents)**
 
-10. ### What are props in React?
+11. ### What are props in React?
 
     _Props_ are inputs to components. They are single values or objects containing a set of values that are passed to components on creation similar to HTML-tag attributes. Here, the data is passed down from a parent component to a child component.
 
@@ -986,6 +989,8 @@ class ParentComponent extends React.Component {
 19. ### What is React Fiber?
 
     Fiber is the new _reconciliation_ engine or reimplementation of core algorithm in React v16. The goal of React Fiber is to increase its suitability for areas like animation, layout, gestures, ability to pause, abort, or reuse work and assign priority to different types of updates; and new concurrency primitives.
+Fiber allows React to split rendering work into small chunks, called units of work, which can be processed incrementally. This makes React more responsive to high-priority updates, like user inputs or animations, by interrupting ongoing work and resuming later.
+In the previous React reconciliation process, updates were processed in a single, synchronous, blocking manner (called "stack reconciliation"), meaning large updates could block the UI for noticeable periods. Fiber fixes this by breaking rendering tasks into smaller pieces that can be paused and resumed.
 
     **[⬆ Back to Top](#table-of-contents)**
 
